@@ -193,3 +193,4 @@ const endInput = document.getElementById('endDate');
 // - Default to a range of 9 days (from 9 days ago to today)
 // - Restrict dates to NASA's image archive (starting from 1995)
 setupDateInputs(startInput, endInput);
+  
