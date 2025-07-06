@@ -1,3 +1,8 @@
+/* NASA Design System: Colors and Fonts */
+
+/* Import Google Fonts for Inter and Source Sans Pro */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap');
+
 /* Global reset & box sizing */
 * {
   box-sizing: border-box;
@@ -7,53 +12,59 @@
 
 /* Base page styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  font-family: 'Inter', 'Source Sans Pro', 'Public Sans', 'Helvetica', Arial, sans-serif;
+  background-color: #0b3d91; /* NASA Blue */
+  color: #fff;
+  margin: 0;
+  min-height: 100vh;
   padding: 20px;
 }
 
 /* Centered container */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(11, 61, 145, 0.15);
+  padding: 32px 24px;
 }
 
 /* Header */
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
 h1 {
-  font-family: Verdana, sans-serif;
-  font-weight: bold;
-  color: #212121;
+  font-family: 'Inter', 'Source Sans Pro', 'Public Sans', 'Helvetica', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e03c31; /* NASA Red */
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 /* Logo */
 .logo {
-  width: 140px;
-  margin-right: 15px;
+  width: 70px;
+  height: auto;
 }
 
 /* Date‐picker & button row */
 .filters {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
-  padding: 0 20px;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 /* Inputs and buttons */
 input[type="date"],
 button {
-  font-family: Arial, sans-serif;
+  font-family: inherit;
   font-weight: normal;
   color: #666;
   padding: 10px 15px;
@@ -64,14 +75,37 @@ button {
   width: 100%;
 }
 
+.filters input[type="date"] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: 1px solid #e03c31;
+  border-radius: 6px;
+  background: #fff;
+  color: #0b3d91;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.filters input[type="date"]:focus {
+  border: 2px solid #0b3d91;
+}
+
 /* Button specific */
 button {
-  background-color: #d3d3d3;
-  color: black;
+  background-color: #e03c31;
+  color: #fff;
   cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  transition: background 0.2s;
 }
 button:hover {
-  background-color: #bfbfbf;
+  background-color: #b3211a;
 }
 
 /* Stack horizontally on wider screens */
@@ -89,56 +123,138 @@ button:hover {
 
 /* Gallery flex container */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
 }
 
 /* Gallery items */
-.gallery-item {
+.gallery-item,
+.apod-card {
   flex: 1 1 100%;  /* full width by default */
   min-width: 280px;
   max-width: 500px;
-  background: white;
+  background: #222;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(11,61,145,0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s;
 }
 
-/* Three columns on wider screens */
-@media (min-width: 1000px) {
-  .gallery-item {
-    flex: 0 1 31%;
-  }
+.apod-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(224, 60, 49, 0.12);
 }
 
-.gallery-item img {
+.gallery-item img,
+.apod-card img {
   width: 100%;
-  height: 200px;
+  max-height: 180px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #0b3d91;
 }
 
-.gallery-item p {
+.gallery-item p,
+.apod-card h3,
+.apod-card p {
   margin-top: 10px;
   padding: 5px;
   font-size: 14px;
 }
 
+.apod-card h3 {
+  font-family: 'Inter', 'Source Sans Pro', 'Public Sans', 'Helvetica', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #e03c31;
+  margin: 0 0 6px 0;
+}
+
+.apod-card p {
+  font-family: 'Source Sans Pro', 'Inter', 'Public Sans', 'Helvetica', Arial, sans-serif;
+  font-size: 0.98rem;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
 /* Placeholder content */
 .placeholder {
-  flex: 1 1 100%;
   text-align: center;
-  padding: 40px;
-  color: #666;
+  color: #b0b8c1;
+  font-size: 1.1rem;
+  margin-top: 40px;
 }
 
 .placeholder-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Modal styles */
+.apod-modal-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(11, 61, 145, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.apod-modal-content {
+  background: #fff;
+  color: #000; /* Make modal text black */
+  border-radius: 12px;
+  padding: 28px 24px 20px 24px;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 32px rgba(11, 61, 145, 0.18);
+  position: relative;
+  font-family: 'Source Sans Pro', 'Inter', 'Public Sans', 'Helvetica', Arial, sans-serif;
+}
+
+.apod-modal-content img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  background: #0b3d91;
+}
+
+.apod-modal-content h2 {
+  color: #e03c31;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-family: 'Inter', 'Source Sans Pro', 'Public Sans', 'Helvetica', Arial, sans-serif;
+}
+
+.apod-modal-content p {
+  color: #000; /* Make modal text black */
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.apod-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 22px;
+  font-size: 2rem;
+  color: #e03c31;
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.2s;
+}
+
+.apod-modal-close:hover {
+  color: #b3211a;
 }
